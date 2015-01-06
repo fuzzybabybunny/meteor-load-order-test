@@ -18,7 +18,7 @@ They do so by either being referenced at the very bottom of a traditional web pa
 
 ##Structure of the Templates###
 
-Router.js
+router.js
 
 ```javascript
 	Router.configure({
@@ -26,7 +26,7 @@ Router.js
 	});
 ```
 
-Layout.html
+layout.html
 
 ```html
 
@@ -34,23 +34,24 @@ Layout.html
 
 	<div class="border">
 		This is the layout.html
+
 		{{> Header}}
 		{{> yield}}
 		{{> Footer}}
+		
 	</div>
 
 </template>
 
 ```
 
-Index.html
+index.html
 
 ```html
 
 <template name="Index">
 
 	<div class="border">
-
 		<div>This is the >yield.</div>
 
 		{{> Partial1}}
