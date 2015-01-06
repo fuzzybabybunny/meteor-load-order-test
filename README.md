@@ -16,6 +16,43 @@ The latter is useful because often we want to run 3rd party scripts that use jQu
 
 They do so by either being referenced at the very bottom of a traditional web page or by the use of $(document).ready(), both of which are ineffective and unreliable when used in a Meteor app.
 
+##Structure of the Templates###
+
+```javascript
+	Router.configure({
+		layoutTemplate: 'Layout'
+	});
+```
+
+```html
+
+<template name="Layout">
+
+	<div class="border">
+		This is the layout.html
+		{{> Header}}
+		{{> yield}}
+		{{> Footer}}
+	</div>
+
+</template>
+
+<template name="Index">
+
+	<div class="border">
+
+		<div>This is the >yield.</div>
+
+		{{> Partial1}}
+		{{> Partial2}}
+
+	</div>
+
+</template>
+
+
+```
+
 ##Results##
 
 Open up Chrome Console and go here:
@@ -30,7 +67,7 @@ There are a few strange things going on.
 - all the DOM nodes are actually created *earlier* than expected
 - with six templates that still have yet to have their .rendered() callbacks fired, the max number of DOM nodes has already been reached. We should expect more DOM nodes to be added with each .rendered() callback being fired.
 
-##ACTUAL Script Load Order##
+##Actual Script Load Order##
 
 - /lib
 - /client/compatibility
