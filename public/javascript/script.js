@@ -1,1 +1,1 @@
-console.log('main.html inside /client loaded - script in /public and referenced in <head> in main.html has been loaded and the number of DOM nodes is ' + document.getElementsByTagName('*').length);
+console.log('main.html inside /client loaded - a script in /public/javascript and referenced in the <head> in main.html has been loaded and the number of DOM nodes is ' + document.getElementsByTagName('*').length);

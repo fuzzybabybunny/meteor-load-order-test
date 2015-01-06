@@ -1,0 +1,1 @@
+console.log('Loaded from Layout.rendered callback. This should only fire after all DOM nodes have been loaded.');
