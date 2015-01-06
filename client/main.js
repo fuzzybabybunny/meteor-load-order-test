@@ -1,0 +1,1 @@
+console.log('main.js in /client has been loaded and the number of DOM nodes is ' + document.getElementsByTagName('*').length);
