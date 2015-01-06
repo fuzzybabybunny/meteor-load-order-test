@@ -1,1 +1,1 @@
-console.log('script in /client/compatibility has been loaded and the number of DOM nodes is ' + document.getElementsByTagName('*').length);
+console.log('/client/compatibility has been loaded and the number of DOM nodes is ' + document.getElementsByTagName('*').length);
