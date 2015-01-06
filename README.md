@@ -29,3 +29,22 @@ There are a few strange things going on.
 - main.js and main.html are actually loaded very soon, counter to what the documentation says: http://docs.meteor.com/#/full/structuringyourapp
 - all the DOM nodes are actually created *earlier* than expected
 - with six templates that still have yet to have their .rendered() callbacks fired, the max number of DOM nodes has already been reached. We should expect more DOM nodes to be added with each .rendered() callback being fired.
+
+##ACTUAL Script Load Order##
+
+- /lib
+- /client/compatibility
+- /client/javascript
+- template rendered callbacks defined
+- main.js in /client
+- <script> tags inside <head> in main.html in /client 
+- Meteor.startup()
+- $('document').ready()
+- $(window).load()
+- ONLY <html> <head> <body> <link> and <script> nodes are created at this point
+- the innermost partial template (inside of yield) rendered callback fired and all DOM nodes APPARENTLY created
+- header template rendered callback
+- yield rendered callback
+- footer template rendered callback
+- layout rendered callback
+- any external scripts loaded from within the layout rendered callback

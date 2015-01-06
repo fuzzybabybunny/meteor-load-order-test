@@ -6,6 +6,7 @@ $('document').ready(function(){
 
 $( window ).load(function(){ 
 	console.log('$(window).load has been fired inside of /client/javascript and the number of DOM nodes is ' + document.getElementsByTagName('*').length);
+	console.log('$(window).load has been fired inside of /client/javascript and the DOM nodes are: ', document.getElementsByTagName('*'));
 });
 
 Meteor.startup(function(){
