@@ -18,11 +18,15 @@ They do so by either being referenced at the very bottom of a traditional web pa
 
 ##Structure of the Templates###
 
+Router.js
+
 ```javascript
 	Router.configure({
 		layoutTemplate: 'Layout'
 	});
 ```
+
+Layout.html
 
 ```html
 
@@ -37,6 +41,12 @@ They do so by either being referenced at the very bottom of a traditional web pa
 
 </template>
 
+```
+
+Index.html
+
+```html
+
 <template name="Index">
 
 	<div class="border">
@@ -49,7 +59,6 @@ They do so by either being referenced at the very bottom of a traditional web pa
 	</div>
 
 </template>
-
 
 ```
 
@@ -67,7 +76,7 @@ There are a few strange things going on.
 - all the DOM nodes are actually created *earlier* than expected
 - with six templates that still have yet to have their .rendered() callbacks fired, the max number of DOM nodes has already been reached. We should expect more DOM nodes to be added with each .rendered() callback being fired.
 
-##Actual Script Load Order##
+##Actual Script Load Order (please refer back to the Structure of the Templates section)##
 
 - /lib
 - /client/compatibility
