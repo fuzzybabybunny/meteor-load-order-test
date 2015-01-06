@@ -37,11 +37,11 @@ There are a few strange things going on.
 - /client/javascript
 - template rendered callbacks defined
 - main.js in /client
-- <script> tags inside <head> in main.html in /client 
+- `<script>` tags inside `<head>` in main.html in /client 
 - Meteor.startup()
 - $('document').ready()
 - $(window).load()
-- ONLY <html> <head> <body> <link> and <script> nodes are created at this point
+- ONLY `<html> <head> <body> <link> and <script>` nodes are created at this point
 - the innermost partial template (inside of yield) rendered callback fired and all DOM nodes APPARENTLY created
 - header template rendered callback
 - yield rendered callback
