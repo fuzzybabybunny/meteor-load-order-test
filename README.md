@@ -14,7 +14,7 @@ This Meteor app:
 
 The latter is useful because often we want to run 3rd party scripts that use jQuery. These scripts were not developed with Meteor in mind but nonetheless require all DOM nodes to be loaded in order to run. 
 
-They do so by either being referenced at the very bottom of a traditional web page or by the use of $(document).ready(), both of which are ineffective and unreliable when used in a Meteor app.
+They do so by either being referenced at the very bottom of a traditional web page or by the use of `$('document').ready()`, both of which are ineffective and unreliable when used in a Meteor app.
 
 ##Structure of the Templates###
 
@@ -38,7 +38,7 @@ layout.html
 		{{> Header}}
 		{{> yield}}
 		{{> Footer}}
-		
+
 	</div>
 
 </template>
@@ -71,11 +71,9 @@ http://load-order-test.meteor.com/
 
 ##Analysis##
 
-There are a few strange things going on.
-
-- main.js and main.html are actually loaded very soon, counter to what the documentation says: http://docs.meteor.com/#/full/structuringyourapp
+- `main.js` and `main.html` are actually loaded very soon, counter to what the documentation says: http://docs.meteor.com/#/full/structuringyourapp
 - all the DOM nodes are actually created *earlier* than expected
-- with six templates that still have yet to have their .rendered() callbacks fired, the max number of DOM nodes has already been reached. We should expect more DOM nodes to be added with each .rendered() callback being fired.
+- with six templates that still have yet to have their `.rendered()` callbacks fired, the max number of DOM nodes has already been reached. I would expect more DOM nodes to be added with each `.rendered()` callback being fired.
 
 ##Actual Script Load Order (please refer back to the Structure of the Templates section)##
 
@@ -86,8 +84,8 @@ There are a few strange things going on.
 - main.js in /client
 - `<script>` tags inside `<head>` in main.html in /client 
 - Meteor.startup()
-- $('document').ready()
-- $(window).load()
+- `$('document').ready()`
+- `$(window).load()`
 - ONLY `<html> <head> <body> <link> and <script>` nodes are created at this point
 - the innermost partial template (inside of yield) rendered callback fired and all DOM nodes APPARENTLY created
 - header template rendered callback
