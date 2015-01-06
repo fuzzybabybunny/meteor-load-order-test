@@ -71,7 +71,9 @@ http://load-order-test.meteor.com/
 
 ##Analysis##
 
-- `main.js` and `main.html` are actually loaded very soon, counter to what the documentation says: http://docs.meteor.com/#/full/structuringyourapp
+- `main.js` and `main.html` are actually loaded very soon, seemingly counter to what the documentation says: http://docs.meteor.com/#/full/structuringyourapp
+- `Meteor.startup()` is run before all DOM nodes are present, again seemingly counter to the documentation (what does 'as soon as the DOM is ready' mean, exactly?): http://docs.meteor.com/#/full/meteor_startup
+- `Meteor.startup()` is run when `<html>, <head>, and <body>` tags are created, but any tags created in your templates are NOT ready at this time.
 - all the DOM nodes are actually created *earlier* than expected
 - with six templates that still have yet to have their `.rendered()` callbacks fired, the max number of DOM nodes has already been reached. I would expect more DOM nodes to be added with each `.rendered()` callback being fired.
 
