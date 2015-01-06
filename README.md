@@ -35,7 +35,7 @@ There are a few strange things going on.
 - /lib
 - /client/compatibility
 - /client/javascript
-- template rendered callbacks defined
+- template rendered callbacks defined (but not run)
 - main.js in /client
 - `<script>` tags inside `<head>` in main.html in /client 
 - Meteor.startup()
